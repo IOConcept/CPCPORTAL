@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CPC Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{ username }}</h1>
+    <h2>Create a CPC Table</h2>
+    <form id="create-table-form">
+        <label for="table-id">Table ID:</label>
+        <input type="text" id="table-id" name="table_id" required>
+        <br><br>
+        <button type="submit">Create Table</button>
+    </form>
+
+    <hr>
+
+    <h2>Created Tables</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Table ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for table in tables %}
+            <tr>
+                <td>{{ table }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#create-table-form').submit(function (event) {
+                event.preventDefault();
+                var tableId = $('#table-id').val();
+                $.ajax({
+                    url: '{{ url_for("save_pending") }}',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify({table_id: tableId}),
+                    success: function (response) {
+                        alert('Table created successfully!');
+                        location.reload();
+                    },
+                    error: function (response) {
+                        alert('Error creating table!');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
