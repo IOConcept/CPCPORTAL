@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CPC Dashboard</title>
+</head>
+<body>
+    <h1>Table Setup</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Chair</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>C0</td>
+                <td>
+                    <select name="c0-role" id="c0-role">
+                        <option value="">Select Role</option>
+                        <option value="F">Funding</option>
+                        <option value="W">Work</option>
+                        <option value="I">Intellectual</option>
+                        <option value="FR">Founder Role</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>C1</td>
+                <td>
+                    <select name="c1-role" id="c1-role">
+                        <option value="">Select Role</option>
+                        <option value="F">Funding</option>
+                        <option value="W">Work</option>
+                        <option value="I">Intellectual</option>
+                        <option value="FR">Founder Role</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>C2</td>
+                <td>
+                    <select name="c2-role" id="c2-role">
+                        <option value="">Select Role</option>
+                        <option value="F">Funding</option>
+                        <option value="W">Work</option>
+                        <option value="I">Intellectual</option>
+                        <option value="FR">Founder Role</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>C3</td>
+                <td>
+                    <select name="c3-role" id="c3-role">
+                        <option value="">Select Role</option>
+                        <option value="F">Funding</option>
+                        <option value="W">Work</option>
+                        <option value="I">Intellectual</option>
+                        <option value="FR">Founder Role</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <form method="POST" action="{{ url_for('dashboard') }}">
+        <button type="submit">Create Table</button>
+    </form>
+</body>
+</html>
